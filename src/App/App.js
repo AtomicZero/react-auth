@@ -1,13 +1,13 @@
-import React, { createContext } from "react";
+import React, { useState, createContext } from "react";
 import { Router } from "../Router";
 
 export const AppContext = createContext();
 
-const initialState = { user: null };
-
 export const App = () => {
+  const [user, setUser] = useState({});
+
   return (
-    <AppContext.Provider value={initialState}>
+    <AppContext.Provider value={{ user, setUser }}>
       <Router />
     </AppContext.Provider>
   );

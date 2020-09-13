@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { AppContext } from "../App/App";
 
 export const Login = () => {
+  const { setUser } = useContext(AppContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
@@ -21,7 +24,9 @@ export const Login = () => {
         password,
       });
 
-      console.log(data.token);
+      const { token } = data;
+
+      setUser({ email, token });
     } catch (error) {
       if (error.response.data.message) {
         setStatusMessage(error.response.data.message);

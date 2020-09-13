@@ -5,11 +5,18 @@ import { Register } from "./Register/Register";
 import { Login } from "./Login/Login";
 import { Welcome } from "./Welcome/Welcome";
 
+const UnauthorisedWrapper = (props) => {
+  return (
+    <div>
+      <p>Please login before accessing the welcome page</p>
+      {props.children}
+    </div>
+  );
+};
+
 export const Router = () => {
   const appContext = useContext(AppContext);
   const { user } = appContext;
-
-  console.log(user);
 
   return (
     <HashRouter>
@@ -36,7 +43,13 @@ export const Router = () => {
             <Register />
           </Route>
           <Route path="/welcome">
-            <Welcome />
+            {user.token ? (
+              <Welcome />
+            ) : (
+              <UnauthorisedWrapper>
+                <Login />
+              </UnauthorisedWrapper>
+            )}
           </Route>
         </Switch>
       </div>
