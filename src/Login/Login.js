@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { AppContext } from "../App/App";
 import { Link } from "react-router-dom";
+import { LOGIN_URL } from "../api/constants";
 
 export const Login = () => {
   const { setUser } = useContext(AppContext);
@@ -20,7 +21,7 @@ export const Login = () => {
 
   const onSubmit = async () => {
     try {
-      const { data } = await axios.post("http://localhost:4000/login", {
+      const { data } = await axios.post(LOGIN_URL, {
         email,
         password,
       });

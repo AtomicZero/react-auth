@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { REGISTER_URL } from "../api/constants";
 
 export const Register = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ export const Register = () => {
   const onSubmit = async () => {
     const {
       data: { success, message },
-    } = await axios.post("http://localhost:4000/register", {
+    } = await axios.post(REGISTER_URL, {
       email,
       password,
     });

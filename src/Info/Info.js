@@ -4,6 +4,8 @@ import axios from "axios";
 
 import { AppContext } from "../App/App";
 
+import { INFO_URL } from "../api/constants";
+
 // This is an example of a route on the api that is going to display data if you're authenticated or not
 export const Info = () => {
   const appContext = useContext(AppContext);
@@ -15,7 +17,7 @@ export const Info = () => {
   useEffect(() => {
     const getInfo = async () => {
       try {
-        const { data } = await axios.get("http://localhost:4000/route", {
+        const { data } = await axios.get(INFO_URL, {
           headers: { authorization: `Bearer ${user.token}` },
         });
 

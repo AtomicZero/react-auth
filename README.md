@@ -2,7 +2,7 @@
 
 Quick mock up of using authentication with an api providing you authentication. In theory you can take this and run with it.
 
-Endpoints are authenticated by default through an `authenticateUser` middleware.
+The user is stored inside of a React Context so it can be pulled in from anywhere.
 
 ## Utilising
 
