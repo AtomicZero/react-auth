@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { AppContext } from "../App/App";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   const { setUser } = useContext(AppContext);
@@ -42,7 +43,9 @@ export const Login = () => {
         <h2>Login</h2>
         <input type="email" value={email} onChange={onEmailChange} />
         <input type="password" value={password} onChange={onPasswordChange} />
-        <button onClick={onSubmit}>Submit</button>
+        <button onClick={onSubmit}>
+          <Link to="/welcome">Submit</Link>
+        </button>
       </div>
       {statusMessage && <small>{statusMessage}</small>}
     </>

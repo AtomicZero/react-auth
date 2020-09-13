@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const onEmailChange = (event) => {
     setEmail(event.target.value);
@@ -16,11 +18,15 @@ export const Register = () => {
 
   const onSubmit = async () => {
     const {
-      data: { message },
+      data: { success, message },
     } = await axios.post("http://localhost:4000/register", {
       email,
       password,
     });
+
+    if (success) {
+      setRegistrationSuccess(true);
+    }
 
     setStatusMessage(message);
   };
@@ -34,6 +40,9 @@ export const Register = () => {
         <button onClick={onSubmit}>Submit</button>
       </div>
       {statusMessage && <small>{statusMessage}</small>}
+      <div>
+        {registrationSuccess && <Link to="/login">Go to login here!</Link>}
+      </div>
     </>
   );
 };
