@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
+
 import { AppContext } from "./App/App";
+
 import { Register } from "./Register/Register";
 import { Login } from "./Login/Login";
 import { Welcome } from "./Welcome/Welcome";
+import { Info } from "./Info/Info";
 
 const UnauthorisedWrapper = (props) => {
   return (
@@ -32,6 +35,9 @@ export const Router = () => {
             <li>
               <Link to="/welcome">welcome</Link>
             </li>
+            <li>
+              <Link to="/info">info</Link>
+            </li>
           </ul>
         </nav>
 
@@ -50,6 +56,9 @@ export const Router = () => {
                 <Login />
               </UnauthorisedWrapper>
             )}
+          </Route>
+          <Route path="/info">
+            <Info />
           </Route>
         </Switch>
       </div>
