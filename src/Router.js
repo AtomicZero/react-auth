@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
+import { AppContext } from "./App/App";
+import { Register } from "./Register/Register";
+import { Login } from "./Login/Login";
+import { Welcome } from "./Welcome/Welcome";
 
 export const Router = () => {
+  const appContext = useContext(AppContext);
+  const { user } = appContext;
+
+  console.log(user);
+
   return (
     <HashRouter>
       <div>
@@ -33,16 +42,4 @@ export const Router = () => {
       </div>
     </HashRouter>
   );
-};
-
-const Login = () => {
-  return <h2>Login</h2>;
-};
-
-const Register = () => {
-  return <h2>Register</h2>;
-};
-
-const Welcome = () => {
-  return <h2>Welcome</h2>;
 };
