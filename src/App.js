@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import { Router } from "../Router";
+import { Router } from "./Router";
 
 export const AppContext = createContext();
 

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
 
-import { AppContext } from "./App/App";
+import { AppContext } from "./pages/App";
 
 import { Register } from "./Register/Register";
 import { Login } from "./Login/Login";

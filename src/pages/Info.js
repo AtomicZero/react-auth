@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import { AppContext } from "../App/App";
+import { AppContext } from "../App";
 
 import { INFO_URL } from "../api/constants";
 

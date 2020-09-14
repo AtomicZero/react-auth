@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import { AppContext } from "../App/App";
+import { AppContext } from "../App";
 import { Link } from "react-router-dom";
 import { LOGIN_URL } from "../api/constants";
 
