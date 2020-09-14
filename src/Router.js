@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import { HashRouter, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
 
 import { AppContext } from "./App";
 
@@ -24,22 +26,7 @@ export const Router = () => {
   return (
     <HashRouter>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/login">login</Link>
-            </li>
-            <li>
-              <Link to="/register">register</Link>
-            </li>
-            <li>
-              <Link to="/welcome">welcome</Link>
-            </li>
-            <li>
-              <Link to="/info">info</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar />
 
         <Switch>
           <Route path="/login">
