@@ -3,7 +3,7 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 
-import { AppContext } from "./App";
+import UserContext from "./UserContext";
 
 import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
@@ -20,8 +20,8 @@ const UnauthorisedWrapper = (props) => {
 };
 
 export const Router = () => {
-  const appContext = useContext(AppContext);
-  const { user } = appContext;
+  const userContext = useContext(UserContext);
+  const { user } = userContext;
 
   return (
     <HashRouter>
@@ -29,13 +29,9 @@ export const Router = () => {
         <Navbar />
 
         <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/welcome">
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/welcome">
             {user.token ? (
               <Welcome />
             ) : (
@@ -44,9 +40,7 @@ export const Router = () => {
               </UnauthorisedWrapper>
             )}
           </Route>
-          <Route path="/info">
-            <Info />
-          </Route>
+          <Route exact path="/info" component={Info} />
         </Switch>
       </div>
     </HashRouter>

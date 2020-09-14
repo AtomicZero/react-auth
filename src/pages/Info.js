@@ -2,17 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import { AppContext } from "../App";
+import UserContext from "../UserContext";
 
 import { INFO_URL } from "../api/constants";
 
 // This is an example of a route on the api that is going to display data if you're authenticated or not
 export const Info = () => {
-  const appContext = useContext(AppContext);
+  const userContext = useContext(UserContext);
   const [info, setInfo] = useState(null);
   const [unauthorisedError, setUnauthorisedError] = useState(null);
 
-  const { user } = appContext;
+  const { user } = userContext;
 
   useEffect(() => {
     const getInfo = async () => {
