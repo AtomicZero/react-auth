@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
 
-import { AppContext } from "./pages/App";
+import { AppContext } from "./App";
 
-import { Register } from "./Register/Register";
-import { Login } from "./Login/Login";
-import { Welcome } from "./Welcome/Welcome";
-import { Info } from "./Info/Info";
+import { Register } from "./pages/Register";
+import { Login } from "./pages/Login";
+import { Welcome } from "./pages/Welcome";
+import { Info } from "./pages/Info";
 
 const UnauthorisedWrapper = (props) => {
   return (

@@ -23,7 +23,7 @@ export const Info = () => {
 
         setInfo(data.data.info);
       } catch (error) {
-        setUnauthorisedError(error.response.data.message);
+        setUnauthorisedError(error?.response?.data?.message);
       }
     };
 
